@@ -1,0 +1,26 @@
+.title {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.title1 {
+  align-items: justify !important;
+}
+
+.justify-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.card-info {
+  width: 40rem;
+  background-color: antiquewhite;
+  border: none;
+  box-shadow: 0px 3px 2px chocolate;
+}
+
+@media (max-width: 798px) {
+  .card-info {
+    width: 16rem;
+  }
+}

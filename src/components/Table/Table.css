@@ -1,0 +1,35 @@
+.muiTableRow-root > * {
+  padding: 10px;
+}
+
+.muiTableRow-root.muiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.Table td,
+th {
+  border: none !important;
+}
+
+.Table:first-child {
+  border-radius: 0.7rem !important;
+}
+
+.status {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-edit {
+  color: rgb(145 254 159 / 70%);
+}
+
+.btn-delete {
+  color: #ffadad8f;
+}

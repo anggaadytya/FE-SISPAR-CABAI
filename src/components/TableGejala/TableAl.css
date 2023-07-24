@@ -1,0 +1,72 @@
+.muiTableRow-root > * {
+  padding: 10px;
+}
+
+.muiTableRow-root.muiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.Table td,
+th {
+  border: none !important;
+}
+
+.Table:first-child {
+  border-radius: 0.7rem !important;
+}
+
+.status {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-edit {
+  color: rgb(145 254 159 / 70%);
+}
+
+.btn-delete {
+  color: #ffadad8f;
+}
+
+.tableAll-custom-scrollbar {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow-y: visible;
+}
+
+.tableAll-wrapper-scroll-y {
+  display: block;
+}
+
+.odd-row {
+  background: var(--orange);
+}
+
+.even-row {
+  background: white;
+}
+
+.headcss {
+  background: var(--pinki);
+  opacity: 70%;
+}
+
+.TableHead {
+  position: sticky;
+  top: 0;
+  background-color: antiquewhite;
+  z-index: 1;
+}
+
+/* Tambahkan style untuk elemen TableHead agar teks berada di tengah header */
+.TableHead .MuiTableCell-root {
+  text-align: center;
+  font-weight: bold;
+}

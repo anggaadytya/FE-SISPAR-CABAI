@@ -1,0 +1,71 @@
+.informasi {
+  margin: 0%;
+  background: linear-gradient(
+    106.37deg,
+    #ffe1bc 29.63%,
+    #ffcfd1 51.55%,
+    #f3c6f1 90.85%
+  );
+  height: 100vh;
+}
+
+.informasi .header-box h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.informasi .header-box h3 span {
+  color: chocolate;
+  font-weight: 700;
+}
+
+.informasi .header-box p {
+  line-height: 2;
+  font-weight: 500;
+}
+
+.informasi .header-box img {
+  margin-left: 2rem !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.btn-wa {
+  margin-top: 1rem;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: chocolate;
+  text-decoration: none;
+  color: white;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  width: fit-content;
+  height: 600px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+@media (max-width: 798px) {
+  .informasi .header-box h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .informasi .header-box p {
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .my-custom-scrollbar {
+    position: relative;
+    height: 350px;
+    overflow: auto;
+  }
+}

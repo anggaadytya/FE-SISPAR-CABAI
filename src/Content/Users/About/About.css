@@ -1,0 +1,53 @@
+.about {
+  margin: 0%;
+  background: linear-gradient(
+    106.37deg,
+    #ffe1bc 29.63%,
+    #ffcfd1 51.55%,
+    #f3c6f1 90.85%
+  );
+  height: 100vh;
+}
+
+.about .header-box h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.about .header-box h1 span {
+  color: chocolate;
+  font-weight: 700;
+}
+
+.about .header-box p {
+  line-height: 2;
+  font-weight: 500;
+}
+
+.about .header-box img {
+  margin-left: 1rem !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.btn-wa {
+  margin-top: 1rem;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: chocolate;
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 798px) {
+  .about .header-box h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .about .header-box p {
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}

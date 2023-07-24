@@ -1,0 +1,21 @@
+.Text1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.btnSearch {
+    background:  chocolate;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.btnReset {
+    background:  rgb(29, 161, 161);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}

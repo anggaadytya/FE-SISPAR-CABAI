@@ -7,11 +7,11 @@ import ButtonLogin from "../../../components/ButtonLogin/ButtonLogin";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 import AlertMessage from "../../../components/AlertAuth/AlertAuth";
-import { deepOrange } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: deepOrange,
+    primary: green,
   },
 });
 
@@ -62,7 +62,7 @@ const Login = () => {
             component="form"
             onSubmit={handleSubmit}
           >
-            <Avatar sx={{ bgcolor: "chocolate" }}>
+            <Avatar sx={{ bgcolor: "var(--green)" }}>
               <LockIcon />
             </Avatar>
             <Typography component={"h1"} variant="h5">
@@ -80,7 +80,7 @@ const Login = () => {
               type="text"
             />
             <div
-              style={{ display: "flex", width: "100%", position: "relative" }}
+              style={{ display: "flex", width: "100%", position: "relative", color:'white'}}
             >
               <InputTextField
                 id="password"
@@ -110,7 +110,7 @@ const Login = () => {
               variant="contained"
               fullWidth
               color="white"
-              backgroundColor="chocolate"
+              backgroundColor="var(--green)"
               label="Sign In"
               onClick={handleSubmit}
             />

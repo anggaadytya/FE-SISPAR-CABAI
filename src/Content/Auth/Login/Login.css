@@ -1,10 +1,8 @@
 .login {
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
+  background-image: url("../../../assets/imageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -12,11 +10,11 @@
 }
 
 .container-login {
-    width: 20rem !important;
+  width: 20rem !important;
 }
 
 .regis {
   text-decoration: none;
   font-weight: 500;
-  color: chocolate;
+  color: var(--green);
 }

@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import "./ReportHarian.css";
 import { useReactToPrint } from "react-to-print";
+import { baseURl } from "../../../constan";
 
 const ReportHarian = () => {
   const componentPDF = useRef();
@@ -26,11 +27,10 @@ const ReportHarian = () => {
     setEndDate(event.target.value);
   };
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/deteksi");
+        const response = await axios.get(`${baseURl}/api/deteksi`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -77,13 +77,19 @@ const ReportHarian = () => {
       >
         <div ref={componentPDF} style={{ width: "100%" }}>
           <Table sx={{ minWidth: 600 }} aria-label="simple table">
-            <TableHead className="TableHead" style={{backgroundColor:"white"}}>
+            <TableHead
+              className="TableHeadReport"
+              style={{ backgroundColor: "white" }}
+            >
               <TableRow>
                 <TableCell align="center" width={10} className="fw-bold">
                   No.
                 </TableCell>
-                <TableCell align="center" width={100} className="fw-bold">
-                  Id Deteksi
+                <TableCell align="center" width={70} className="fw-bold">
+                  Kode Deteksi
+                </TableCell>
+                <TableCell align="center" className="fw-bold">
+                  Gejala
                 </TableCell>
                 <TableCell align="center" className="fw-bold">
                   Hama dan Penyakit
@@ -92,18 +98,18 @@ const ReportHarian = () => {
                   Similarity
                 </TableCell>
                 <TableCell align="center" className="fw-bold">
+                  Jenis
+                </TableCell>
+                <TableCell align="center" width={320} className="fw-bold">
                   Solusi
                 </TableCell>
-                <TableCell align="center" className="fw-bold">
-                  jenis
-                </TableCell>
-                <TableCell align="center" className="fw-bold">
+                <TableCell align="center" width={120} className="fw-bold">
                   Tanggal Deteksi
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-            {filteredData.map((row, index) =>(
+              {filteredData.map((row, index) => (
                 <TableRow
                   key={row.id_deteksi}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -114,8 +120,17 @@ const ReportHarian = () => {
                   <TableCell component="th" scope="row" align="center">
                     {row.id_deteksi}
                   </TableCell>
+                  <TableCell align="left">
+                    {row.gejala.split(",").map((namaGejala, index) => (
+                      <div key={index} style={{ margin: "0 10px" }}>
+                        {namaGejala}
+                      </div>
+                    ))}
+                  </TableCell>
                   <TableCell align="center">{row.hasil}</TableCell>
-                  <TableCell align="justify">{row.similarity}</TableCell>
+                  <TableCell align="justify">
+                    {parseFloat(row.similarity).toFixed(3)}
+                  </TableCell>
                   <TableCell align="center">{row.jenis}</TableCell>
                   <TableCell align="justify">{row.solusi}</TableCell>
                   <TableCell align="justify">
@@ -128,7 +143,9 @@ const ReportHarian = () => {
         </div>
       </TableContainer>
       <div className="d-flex align-items-center mt-3 gap-2">
-        <label htmlFor="startDate" className="text1">Tanggal :</label>
+        <label htmlFor="startDate" className="text1">
+          Tanggal :
+        </label>
         <input
           className="input-tanggal"
           type="date"

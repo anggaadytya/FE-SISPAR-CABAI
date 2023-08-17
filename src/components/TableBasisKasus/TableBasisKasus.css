@@ -34,14 +34,14 @@ th {
   color: #ffadad8f;
 }
 
-.tableAll-custom-scrollbar {
+.tableBk-custom-scrollbar {
   position: relative;
   width: 100%;
-  max-height: 600px;
+  max-height: 33rem;
   overflow-y: visible;
 }
 
-.tableAll-wrapper-scroll-y {
+.tableBk-wrapper-scroll-y {
   display: block;
 }
 
@@ -58,15 +58,15 @@ th {
   opacity: 70%;
 }
 
-.TableHead {
+.TableHeadBasiskasus {
   position: sticky;
   top: 0;
-  background-color: antiquewhite;
+  background-color: white;
   z-index: 1;
 }
 
 /* Tambahkan style untuk elemen TableHead agar teks berada di tengah header */
-.TableHead .MuiTableCell-root {
+.TableHeadBasiskasus .MuiTableCell-root {
   text-align: center;
   font-weight: bold;
 }

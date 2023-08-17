@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Swal from "sweetalert2";
 import {
   Dialog,
   DialogTitle,
@@ -10,12 +9,8 @@ import {
   TextField,
 } from "@mui/material";
 
-const ModalComponent = ({
-  openModal,
-  selectedData,
-  onCloseModal,
-  onEditData,
-}) => {
+const ModalComponent = (props) => {
+  const {openModal, selectedData, onCloseModal, onEditData} = props;
   const [editedData, setEditedData] = useState(onEditData);
 
   useEffect(() => {
@@ -68,7 +63,7 @@ const ModalComponent = ({
               <TextField
                 label="Edit Gejala"
                 name="gejala"
-                value={editedData.gejala || []}
+                value={editedData.idGejala || []}
                 onChange={handleInputChange}
                 fullWidth
                 margin="normal"
@@ -78,7 +73,7 @@ const ModalComponent = ({
           <DialogActions>
             <Button
               onClick={onCloseModal}
-              style={{ backgroundColor: " rgb(29, 161, 161)", color: "white" }}
+              style={{ backgroundColor: " var(--gray)", color: "white" }}
             >
               Kembali
             </Button>

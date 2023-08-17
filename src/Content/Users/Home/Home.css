@@ -1,27 +1,25 @@
 .Home {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0%;
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
+  background-image: url("../../../assets/imageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
 }
 
 .Home .header-box h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 600;
 }
 
 .Home .header-box h1 span {
-  color: chocolate;
+  color: var(--green);
   font-weight: 700;
 }
 
 .Home .header-box p {
-  line-height: 2;
+  line-height: 1.4;
   font-weight: 500;
 }
 
@@ -30,19 +28,28 @@
   height: 100% !important;
 }
 
-.btn-color {
-  background: var(--orange) !important;
+.btn-color-home {
+  background: var(--green) !important;
   color: white !important;
+}
+
+.headers {
+  padding-top: 6rem;
 }
 
 @media (max-width: 798px) {
   .Home .header-box h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin:15px  10px ;
   }
 
+
   .Home .header-box p {
+    margin: 10px;
     line-height: 1.5;
     font-weight: 400;
+    font-size: 12px;
   }
+  
 }

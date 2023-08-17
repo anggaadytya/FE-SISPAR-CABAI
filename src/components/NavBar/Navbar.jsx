@@ -18,7 +18,7 @@ function BasicExample() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto d-flex align-items-center fw-bold ">
+          <Nav className="ms-auto d-flex align-items-center fw-bold judul">
             <Link style={{ textDecoration: "none" }} to="/">
               <Nav className="nav-link">Home</Nav>
             </Link>
@@ -33,7 +33,7 @@ function BasicExample() {
             </Link>
             <Link style={{ textDecoration: "none" }} to="/auth/login">
               <Nav>
-                <button className="btn1 rounded-4">Login</button>
+                <button className="btn1 rounded-4 ">Login</button>
               </Nav>
             </Link>
           </Nav>

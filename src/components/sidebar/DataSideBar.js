@@ -10,7 +10,7 @@ export const SideBarData = [
   {
     id: 1,
     icon: UilEstate,
-    heading: "Dahboard",
+    heading: "Dashboard",
     link: "/admin/dashboard",
   },
   {

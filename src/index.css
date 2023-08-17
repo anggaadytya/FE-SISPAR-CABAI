@@ -8,37 +8,29 @@
   --orange: rgb(248, 212, 154);
   --pinki: linear-gradient(180deg, #ff919d 0%, #fc929d 100%);
   --ungu: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --green: #01924f;
+  --gray: #012732;
+  --abuabu: #e7e7e7;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .App {
   margin: 0%;
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
+  background: white;
   height: 100vh;
 }
 
 .AppMain {
   margin: 0%;
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
+  background: white;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .AppGlass {
@@ -46,7 +38,7 @@ body {
   height: 99%;
   width: 99%;
   border-radius: 2rem;
-  background-color: var(--glass);
+  background-color: var(--abuabu);
   overflow: hidden;
   grid-template-columns: 15rem auto;
 }

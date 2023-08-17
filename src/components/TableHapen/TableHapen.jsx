@@ -35,7 +35,7 @@ export default function BasicTable({
       cancelButtonText: "Batal",
     }).then((result) => {
       if (result.isConfirmed) {
-        handleDeleteButtonClick(row); 
+        handleDeleteButtonClick(row);
       }
     });
   };
@@ -44,13 +44,10 @@ export default function BasicTable({
     <div className="Table mt-5">
       <TableContainer
         component={Paper}
-        className="tableAll-wrapper-scroll-y tableAll-custom-scrollbar"
+        className="tableHapen-wrapper-scroll-y tableHapen-custom-scrollbar"
       >
-        <Table
-          sx={{ minWidth: 600, backgroundColor: "antiquewhite" }}
-          aria-label="simple table"
-        >
-          <TableHead className="TableHead">
+        <Table sx={{ minWidth: 600 }} aria-label="simple table">
+          <TableHead className="TableHeadHapen">
             <TableRow>
               <TableCell align="center" width={100} className="fw-bold">
                 Id Hapen
@@ -73,7 +70,10 @@ export default function BasicTable({
             {getDataHapenAll.map((row, index) => (
               <TableRow
                 key={row.id_hapen}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 1 },
+                  borderBottom: "1px solid #e0e0e0",
+                }}
               >
                 <TableCell component="th" scope="row" align="center">
                   {row.id_hapen}

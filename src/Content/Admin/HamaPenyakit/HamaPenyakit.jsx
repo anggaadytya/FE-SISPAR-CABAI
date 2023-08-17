@@ -6,6 +6,7 @@ import ModalTambahHapen from "../../../components/ModalTambahHapen/ModalTambahHa
 import Swal from "sweetalert2";
 import axios from "axios";
 import "./HamaPenyakit.css";
+import { baseURl } from "../../../../constan";
 
 const HamaPenyakit = () => {
   const [getDataHapen, setGetDataHapen] = useState([]);
@@ -20,7 +21,7 @@ const HamaPenyakit = () => {
 
   const ambilDataHapen = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/hapen");
+      const response = await fetch(`${baseURl}/api/hapen`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -34,7 +35,7 @@ const HamaPenyakit = () => {
   const handleEditData = async (editedData) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/hapen/${editedData.id_hapen}`,
+        `${baseURl}/api/hapen/${editedData.id_hapen}`,
         {
           method: "PUT",
           headers: {
@@ -61,7 +62,7 @@ const HamaPenyakit = () => {
   const handleDeleteData = async (deletedData) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/hapen/${deletedData.id_hapen}`,
+        `${baseURl}/api/hapen/${deletedData.id_hapen}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -94,7 +95,7 @@ const HamaPenyakit = () => {
   const handleTambahData = async (formData) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/hapen",
+        `${baseURl}/api/hapen`,
         formData
       );
       const newIdHapen = response.data.id_hapen;

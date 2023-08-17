@@ -63,22 +63,23 @@
 }
 
 .active {
-  background-color: var(--activeItem);
+  background-color: var(--green);
   margin-left: 0;
+  color: white;
 }
 
 .active::before {
   content: "";
   width: 8px;
   height: 100%;
-  background: var(--pink);
+  background: var(--gray);
   margin-right: calc(1rem - 8px);
 }
 
 .span3 {
-  color: rgb(29, 161, 161);
+  color: var(--gray);
 }
 
 .span4 {
-  color: chocolate;
+  color: var(--green);
 }

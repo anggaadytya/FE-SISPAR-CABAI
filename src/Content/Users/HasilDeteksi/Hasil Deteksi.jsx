@@ -1,11 +1,11 @@
 import Navbar from "./../../../components/NavBar/Navbar";
-import bigImage from "./../../../assets/imageSide.png";
 import "./HasilDeteksi.css";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
 import Neighbors from "../../../components/Neighbor/Neighbor";
 import { useReactToPrint } from "react-to-print";
+import { baseURl } from "../../../../constan";
 
 const Deteksi = () => {
   const componentPDF = useRef();
@@ -23,7 +23,7 @@ const Deteksi = () => {
   const ambilDataDeteksi = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/deteksi/${idDeteksi}`
+        `${baseURl}/api/deteksi/${idDeteksi}`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -44,14 +44,14 @@ const Deteksi = () => {
   return (
     <div className="deteksi">
       <Navbar />
-      <header className="pt-5 d-flex align-items-center">
+      <header className="d-flex align-items-center">
         <Container>
-          <Row className="header-box d-flex align-items-center">
+          <Row className="d-flex align-items-center">
             <Col>
               <div ref={componentPDF} style={{ width: "100%" }}>
-                <h3 className="text-center fw-bold">
-                  Hasil Deteksi <br />
-                  <span>tanaman Cabai anda</span>
+                <h3 className="text-center fw-bold hasil">
+                  Hasil Deteksi 
+                  <span className="textTitle">Tanaman Cabai Anda</span>
                 </h3>
                 <span className="span">ID Deteksi :</span>
                 <InputGroup>
@@ -64,7 +64,7 @@ const Deteksi = () => {
                 <InputGroup>
                   <Form.Control
                     className="form1"
-                    value={selectedDeteksi.hasil}
+                    value={selectedDeteksi.nama_hapen}
                   />
                 </InputGroup>
                 <span className="span">Detail Penyakit :</span>
@@ -75,8 +75,9 @@ const Deteksi = () => {
                       as="textarea"
                       value={selectedDeteksi.detail}
                       style={{
+                        textAlign: 'justify',
                         height: `${
-                          selectedDeteksi.detail.split("\n").length * 2
+                          selectedDeteksi.detail.split(".").length * 1.2
                         }em`,
                       }}
                     />
@@ -92,8 +93,9 @@ const Deteksi = () => {
                       as="textarea"
                       value={selectedDeteksi.solusi}
                       style={{
+                        textAlign: 'justify',
                         height: `${
-                          selectedDeteksi.solusi.split("\n").length * 2
+                          selectedDeteksi.solusi.split(".").length * 1
                         }em`,
                       }}
                     />
@@ -121,17 +123,14 @@ const Deteksi = () => {
                 </InputGroup>
                 <Neighbors id_deteksi={idDeteksi} />
               </div>
-              <div className="mt-4 d-flex align-items-center gap-4">
-                <Link to="/" className="btn-reset rounded-2">
+              <div className="buttonHasil d-flex align-items-center gap-4">
+                <Link to="/" className="btn-submit-hasil rounded-2">
                   Back
                 </Link>
-                <button className="btn-submit rounded-2" onClick={generatePDF}>
+                <button className="btn-reset-hasil rounded-2" onClick={generatePDF}>
                   PDF
                 </button>
               </div>
-            </Col>
-            <Col>
-              <img src={bigImage} alt="Hero Image" />
             </Col>
           </Row>
         </Container>

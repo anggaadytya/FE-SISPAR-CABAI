@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "./../../../components/NavBar/Navbar";
-import bigImage from "./../../../assets/imageSide.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "./Home.css";
 import Swal from "sweetalert2";
 
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { baseURl } from "../../../../constan";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,9 +23,7 @@ const HomePage = () => {
   const handleCekDeteksi = async () => {
     if (idDeteksi.trim() !== "") {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/deteksi/${idDeteksi}`
-        );
+        const response = await fetch(`${baseURl}/api/deteksi/${idDeteksi}`);
         if (!response.ok) {
           Swal.fire({
             icon: "error",
@@ -51,10 +49,11 @@ const HomePage = () => {
       });
     }
   };
+
   return (
     <div className="Home">
       <Navbar />
-      <header className="pt-5 d-flex align-items-center">
+      <header className="headers d-flex align-items-center">
         <Container>
           <Row className="header-box d-flex align-items-center">
             <Col>
@@ -64,37 +63,34 @@ const HomePage = () => {
               </h1>
               <p className="">
                 Silahkan melakukan deteksi untuk mengetahui hama dan penyakit
-                yang menyerang tanaman cabai anda
+                yang menyerang <br /> tanaman cabai anda
               </p>
               <p>cek hasil konsultasi anda dibawah</p>
               <div className="d-flex align-items-center">
-                <div className="form-outline col-sm-5">
+                <div className="form-outline col-sm-4">
                   <input
                     type="text"
                     id="typeText"
-                    className="form-control rounded-4"
+                    className="form-control rounded-4 border-1"
                     value={idDeteksi}
                     onChange={handleInputChange}
                   />
                 </div>
                 <button
-                  className="btn btn-color btn-md rounded-4 ms-2"
+                  className="btn btn-color-home btn-md rounded-4 ms-2"
                   onClick={handleCekDeteksi}
                 >
                   Cek
                 </button>
               </div>
-              <p>atau ajukan konsultasi</p>
+              <p className="mt-3">atau ajukan konsultasi</p>
               <button
-                className="btn btn-color btn-md rounded-4"
+                className="btn btn-color-home btn-md rounded-4"
                 onClick={() => navigate("/deteksi")}
               >
                 <ArrowForwardIosIcon />
                 Disini
               </button>
-            </Col>
-            <Col>
-              <img src={bigImage} alt="Hero Image" />
             </Col>
           </Row>
         </Container>

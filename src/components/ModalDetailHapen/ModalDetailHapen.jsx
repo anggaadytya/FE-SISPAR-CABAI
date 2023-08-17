@@ -10,16 +10,10 @@ import {
   TextField,
 } from "@mui/material";
 
-const ModalComponent = ({
-  openModal,
-  selectedData,
-  onCloseModal,
-  onEditData,
-}) => {
+const ModalComponent = (props) => {
+  const { openModal, selectedData, onCloseModal, onEditData } = props;
   const [editedData, setEditedData] = useState(onEditData);
 
-
-  // Set nilai awal editedData saat komponen dibuka
   useEffect(() => {
     if (selectedData) {
       setEditedData({
@@ -35,7 +29,6 @@ const ModalComponent = ({
 
   const handleEditButtonClick = () => {
     onCloseModal();
-    // Tampilkan SweetAlert konfirmasi sebelum mengubah data
     Swal.fire({
       icon: "question",
       title: "Konfirmasi",
@@ -43,15 +36,14 @@ const ModalComponent = ({
       confirmButtonText: "OK",
       showCancelButton: true,
       cancelButtonText: "Batal",
-      confirmButtonColor: "chocolate",
-      cancelButtonColor: "grey",
+      confirmButtonColor: "var(--green)",
+      cancelButtonColor: "var(--gray)",
     }).then((result) => {
       if (result.isConfirmed) {
         onEditData(editedData);
       }
     });
   };
-
 
   return (
     <Dialog open={openModal} onClose={onCloseModal} maxWidth="sm" fullWidth>
@@ -97,13 +89,13 @@ const ModalComponent = ({
           <DialogActions>
             <Button
               onClick={handleEditButtonClick}
-              style={{ backgroundColor: "chocolate", color: "white" }}
+              style={{ backgroundColor: "var(--green)", color: "white" }}
             >
               Edit Data
             </Button>
             <Button
               onClick={onCloseModal}
-              style={{ backgroundColor: " rgb(29, 161, 161)", color: "white" }}
+              style={{ backgroundColor: "var(--gray)", color: "white" }}
             >
               Kembali
             </Button>

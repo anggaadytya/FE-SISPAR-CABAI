@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { baseURl } from "../../../../constan";
 import Cards from "../../../components/Cards/Cards";
 import SideBar from "../../../components/sidebar/SideBar";
 import Table from "../../../components/Table/Table";
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
   const getUsersData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/users");
+      const response = await fetch(`${baseURl}/api/users`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

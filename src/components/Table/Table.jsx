@@ -34,11 +34,10 @@ export default function BasicTable({getdatauser}) {
 
       <TableContainer
         component={Paper}
-        sx={{ backgroundColor: "antiquewhite" }}
         className="tableAll-wrapper-scroll-y tableAll-custom-scrollbar"
       >
         <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-          <TableHead>
+          <TableHead className="TableHeadBasiskasus">
             <TableRow >
               <TableCell align="center" width={100}>User Id</TableCell>
               <TableCell align="center">UserName</TableCell>

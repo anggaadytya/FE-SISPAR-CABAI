@@ -11,31 +11,44 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  TextField,
 } from "@mui/material";
+import { baseURl } from "../../../constan";
 
-const ModalTambahGejala = ({
-  openTambahModal,
-  onCloseTambahModal,
-  onTambahData,
-  lastIdBk,
-}) => {
+const ModalTambahGejala = (props) => {
+  const {openTambahModal, onCloseTambahModal, onTambahData, lastIdBk} = props;
+  const [gejalaList, setGejalaList] = useState([]);
+  const [hapenList, setHapenList] = useState([]);
   const [formData, setFormData] = useState({
     id_basiskasus: lastIdBk,
     id_hapen: "",
-    id_gejala: [],
+    gejalaData: [
+      {
+        id_gejala: "",
+        bobot: "0",
+      },
+    ],
   });
 
-  const [gejalaList, setGejalaList] = useState([]);
-  const [hapenList, setHapenList] = useState([]);
+  const handleAddGejala = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      gejalaData: [...prevData.gejalaData, { id_gejala: "", bobot: "0" }],
+    }));
+  };
 
-  
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const handleRemoveGejala = (index) => {
+    setFormData((prevData) => {
+      const updatedGejalaData = prevData.gejalaData.filter(
+        (_, i) => i !== index
+      );
+      return { ...prevData, gejalaData: updatedGejalaData };
+    });
+  };
 
   const fetchGejalaData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/gejala");
+      const response = await fetch(`${baseURl}/api/gejala`);
       if (!response.ok) {
         throw new Error("Gagal mengambil data gejala");
       }
@@ -49,7 +62,7 @@ const ModalTambahGejala = ({
 
   const fetchHapenData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/hapen");
+      const response = await fetch(`${baseURl}/api/hapen`);
       if (!response.ok) {
         throw new Error("Gagal mengambil data hapen");
       }
@@ -72,26 +85,43 @@ const ModalTambahGejala = ({
     }
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event, index) => {
     const { name, value } = event.target;
-    if (event.target.multiple) {
-      const selectedValues = Array.from(
-        event.target.selectedOptions,
-        (option) => option.value
+
+    if (name.startsWith("id_gejala")) {
+      const updatedGejalaData = [...formData.gejalaData];
+      updatedGejalaData[index].id_gejala = value;
+      const selectedGejala = gejalaList.find(
+        (gejala) => gejala.id_gejala === value
       );
-      setFormData((prevData) => ({ ...prevData, [name]: selectedValues }));
+      updatedGejalaData[index].bobot = selectedGejala
+        ? selectedGejala.default_bobot
+        : "0";
+
+      setFormData((prevData) => ({
+        ...prevData,
+        gejalaData: updatedGejalaData,
+      }));
+    } else if (name.startsWith("bobot")) {
+      const updatedGejalaData = [...formData.gejalaData];
+      updatedGejalaData[index].bobot = value;
+
+      setFormData((prevData) => ({
+        ...prevData,
+        gejalaData: updatedGejalaData,
+      }));
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
 
   const handleTambahButtonClick = () => {
-    if (!formData.id_hapen || !formData.id_gejala) {
+    if (!formData.id_hapen || !formData.gejalaData) {
       return Swal.fire({
         icon: "error",
         title: "Error",
         text: "Hapen dan Gejala harus diisi.",
-        confirmButtonColor: "chocolate",
+        confirmButtonColor: "var(--green)",
         customClass: {
           container: "my-swal-container",
         },
@@ -104,8 +134,8 @@ const ModalTambahGejala = ({
       confirmButtonText: "OK",
       showCancelButton: true,
       cancelButtonText: "Batal",
-      confirmButtonColor: "chocolate",
-      cancelButtonColor: "rgb(29, 161, 161)",
+      confirmButtonColor: "var(--green)",
+      cancelButtonColor: "var(--gray)",
       customClass: {
         container: "my-swal-container",
       },
@@ -122,13 +152,18 @@ const ModalTambahGejala = ({
       setFormData({
         id_basiskasus: lastIdBk,
         id_hapen: "",
-        id_gejala: [],
+        gejalaData: [],
       });
       onCloseTambahModal();
     } catch (error) {
       console.error("Error menambah data:", error);
     }
   };
+
+  useEffect(() => {
+    console.log("data", formData);
+    fetchData();
+  }, []);
 
   return (
     <Dialog
@@ -141,46 +176,79 @@ const ModalTambahGejala = ({
       <DialogContent>
         <div>
           <FormControl fullWidth margin="normal">
-            <InputLabel htmlFor="id_hapen">Pilih Hapen</InputLabel>
+            <InputLabel htmlFor="id_hapen">Nama Hapen</InputLabel>
             <Select
               name="id_hapen"
               value={formData.id_hapen || ""}
               onChange={handleInputChange}
             >
+              <MenuItem value="">--Pilih Hapen--</MenuItem>
               {hapenList.map((hapen) => (
                 <MenuItem key={hapen.id_hapen} value={hapen.id_hapen}>
-                  {hapen.nama_hapen}
+                  {hapen.id_hapen} {hapen.nama_hapen}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
-          <FormControl fullWidth margin="normal">
-            <InputLabel htmlFor="id_gejala">Pilih Gejala</InputLabel>
-            <Select
-              name="id_gejala"
-              multiple
-              value={formData.id_gejala || []}
-              onChange={handleInputChange}
+
+          <div id="gejala-container">
+            {formData.gejalaData.map((gejala, index) => (
+              <FormControl fullWidth margin="normal" key={index}>
+                <InputLabel htmlFor={`id_gejala_${index}`}>
+                  Nama Gejala
+                </InputLabel>
+                <Select
+                  name={`id_gejala_${index}`}
+                  value={gejala.id_gejala || ""}
+                  onChange={(event) => handleInputChange(event, index)}
+                >
+                  <MenuItem value="">--Pilih Gejala--</MenuItem>
+                  {gejalaList.map((gejala) => (
+                    <MenuItem key={gejala.id_gejala} value={gejala.id_gejala}>
+                      {gejala.id_gejala} {gejala.nama_gejala}
+                    </MenuItem>
+                  ))}
+                </Select>
+                <TextField
+                  name={`bobot_${index}`}
+                  label="Bobot"
+                  type="number"
+                  value={gejala.bobot || ""}
+                  onChange={(event) => handleInputChange(event, index)}
+                />
+                <Button
+                  type="button"
+                  variant="contained"
+                  color="error"
+                  size="small"
+                  onClick={() => handleRemoveGejala(index)}
+                >
+                  Hapus
+                </Button>
+              </FormControl>
+            ))}
+            <Button
+              type="button"
+              variant="contained"
+              color="success"
+              size="small"
+              onClick={handleAddGejala}
             >
-              {gejalaList.map((gejala) => (
-                <MenuItem key={gejala.id_gejala} value={gejala.id_gejala}>
-                  {gejala.nama_gejala}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+              Tambah
+            </Button>
+          </div>
         </div>
       </DialogContent>
       <DialogActions>
         <Button
           onClick={handleTambahButtonClick}
-          style={{ backgroundColor: "chocolate", color: "white" }}
+          style={{ backgroundColor: "var(--green)", color: "white" }}
         >
           Tambah Data
         </Button>
         <Button
           onClick={onCloseTambahModal}
-          style={{ backgroundColor: "rgb(29, 161, 161)", color: "white" }}
+          style={{ backgroundColor: "var(--gray)", color: "white" }}
         >
           Batal
         </Button>

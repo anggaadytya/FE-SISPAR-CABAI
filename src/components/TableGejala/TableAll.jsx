@@ -1,11 +1,24 @@
-import { IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
+import {
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./TableAl.css";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
-export default function BasicTable({ getDataGejalaAll, onInfoButtonClick, handleDeleteButtonClick }) {
+export default function BasicTable({
+  getDataGejalaAll,
+  onInfoButtonClick,
+  handleDeleteButtonClick,
+}) {
   useEffect(() => {
     console.log("get Data Gejala:", getDataGejalaAll);
   });
@@ -31,19 +44,16 @@ export default function BasicTable({ getDataGejalaAll, onInfoButtonClick, handle
     <div className="Table mt-5">
       <TableContainer
         component={Paper}
-        className="tableAll-wrapper-scroll-y tableAll-custom-scrollbar"
+        className="tableGejala-wrapper-scroll-y tableGejala-custom-scrollbar"
       >
-        <Table sx={{ minWidth: 600, backgroundColor:"antiquewhite"}} aria-label="simple table">
-          <TableHead className="TableHead"  >
+        <Table sx={{ minWidth: 600 }} aria-label="simple table">
+          <TableHead className="TableHeadGejala">
             <TableRow>
-              <TableCell align="center" width={100} className="fw-bold">
+              <TableCell align="center" width={120} className="fw-bold">
                 Id Gejala
               </TableCell>
               <TableCell align="center" className="fw-bold">
                 Nama Gejala
-              </TableCell>
-              <TableCell align="center" className="fw-bold">
-                Bobot
               </TableCell>
               <TableCell align="center" width={200} className="fw-bold">
                 Action
@@ -54,13 +64,17 @@ export default function BasicTable({ getDataGejalaAll, onInfoButtonClick, handle
             {getDataGejalaAll.map((row, index) => (
               <TableRow
                 key={row.id_gejala}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  borderBottom: "1px solid #e0e0e0",
+                }}
               >
                 <TableCell component="th" scope="row" align="center">
                   {row.id_gejala}
                 </TableCell>
-                <TableCell align="center">{row.nama_gejala}</TableCell>
-                <TableCell align="center">{row.bobot}</TableCell>
+                <TableCell align="left" width={400}>
+                  {row.nama_gejala}
+                </TableCell>
                 <TableCell align="center" className="btn">
                   <IconButton>
                     <InfoIcon
@@ -69,7 +83,10 @@ export default function BasicTable({ getDataGejalaAll, onInfoButtonClick, handle
                     />
                   </IconButton>
                   <IconButton>
-                    <DeleteIcon className="btn-delete" onClick={() => showDeleteConfirmation(row)} />
+                    <DeleteIcon
+                      className="btn-delete"
+                      onClick={() => showDeleteConfirmation(row)}
+                    />
                   </IconButton>
                 </TableCell>
               </TableRow>

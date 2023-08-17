@@ -16,9 +16,18 @@
 
   .input-tanggal {
     border-radius: 5px !important;
-    border: 1px solid chocolate;
+    border: 1px solid var(--gray);
   }
 
-  .input-tanggal:hover {
-    bor
+  .TableHeadReport {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+  
+  /* Tambahkan style untuk elemen TableHead agar teks berada di tengah header */
+  .TableHeadReport .MuiTableCell-root {
+    text-align: center;
+    font-weight: bold;
   }

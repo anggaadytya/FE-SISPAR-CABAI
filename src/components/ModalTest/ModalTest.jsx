@@ -10,12 +10,8 @@ import {
   TextField,
 } from "@mui/material";
 
-const ModalComponent = ({
-  openModal,
-  selectedData,
-  onCloseModal,
-  onEditData,
-}) => {
+const ModalComponent = (props) => {
+  const {openModal, selectedData, onCloseModal, onEditData} = props;
   const [editedData, setEditedData] = useState(onEditData);
 
 
@@ -41,7 +37,7 @@ const ModalComponent = ({
       confirmButtonText: "OK",
       showCancelButton: true,
       cancelButtonText: "Batal",
-      confirmButtonColor: "chocolate",
+      confirmButtonColor: "vr(--green)",
       cancelButtonColor: "grey",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -87,13 +83,13 @@ const ModalComponent = ({
           <DialogActions>
             <Button
               onClick={handleEditButtonClick}
-              style={{ backgroundColor: "chocolate", color: "white" }}
+              style={{ backgroundColor: "var(--green)", color: "white" }}
             >
               Edit Data
             </Button>
             <Button
               onClick={onCloseModal}
-              style={{ backgroundColor: " rgb(29, 161, 161)", color: "white" }}
+              style={{ backgroundColor: " var(--gray)", color: "white" }}
             >
               Kembali
             </Button>

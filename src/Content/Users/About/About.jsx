@@ -1,5 +1,4 @@
 import Navbar from "../../../components/NavBar/Navbar";
-import bigImage from "./../../../assets/imageSide.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -28,7 +27,7 @@ const About = () => {
                 tanaman cabai mereka dan memberikan solusi terkait permasalahan
                 hama dan penyakit yang dialami oleh petani.
               </p>
-              <div className="d-flex justify-content-around ">
+              <div className="d-flex justify-content-around iconButton ">
                 <a href="https://github.com/anggaadytya">
                   <IconButton>
                     <GitHubIcon />
@@ -45,15 +44,9 @@ const About = () => {
                   </IconButton>
                 </a>
               </div>
-              <a
-                href="https://wa.me/081265616130"
-                className="btn-wa d-block"
-              >
+              <a href="https://wa.me/+6281265616130" className="btn-wa d-block">
                 Hubungi Kami
               </a>
-            </Col>
-            <Col>
-              <img src={bigImage} alt="Hero Image" />
             </Col>
           </Row>
         </Container>

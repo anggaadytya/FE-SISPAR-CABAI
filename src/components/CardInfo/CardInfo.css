@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center !important;
   align-items: center !important;
+  color: var(--green);
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 15px !important;
 }
 .title1 {
   align-items: justify !important;
@@ -13,14 +17,36 @@
 }
 
 .card-info {
-  width: 40rem;
-  background-color: antiquewhite;
-  border: none;
-  box-shadow: 0px 3px 2px chocolate;
+  width: 100%;
+  background-color: rgb(255, 245, 255, 0.5);
+  border: 1px solid var(--gray);
+  box-shadow: 0px 3px 2px var(--green);
+}
+
+.classSolusi1 {
+  color: var(--green);
+  font-size: 1rem !important;
+  font-weight: 700 !important;
 }
 
 @media (max-width: 798px) {
   .card-info {
-    width: 16rem;
+    width: 100%;
+  }
+
+  .title {
+    color: var(--green);
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+  }
+
+  .classSolusi1 {
+    color: var(--green);
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+  }
+
+  .textInfo {
+    font-size: 10px;
   }
 }

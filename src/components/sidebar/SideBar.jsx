@@ -1,4 +1,4 @@
-import reactLogo from "../../assets/logo.png";
+import reactLogo from "../../assets/logoBaru.png";
 import "./SideBar.css";
 
 import { SideBarData } from "./DataSideBar";
@@ -10,12 +10,10 @@ const SideBar = (props) => {
   const [selected, setSelected] = useState(props.id);
   const navigate = useNavigate();
 
-
   const handleLinkClick = (id, link) => {
     setSelected(id);
     navigate(link);
   };
-
 
   return (
     <div className="Sidebar">
@@ -30,7 +28,7 @@ const SideBar = (props) => {
           return (
             <Link
               key={id}
-              className={ selected === id ? "menuItem active" : "menuItem"}
+              className={selected === id ? "menuItem active" : "menuItem"}
               onClick={() => handleLinkClick(id, item.link)}
             >
               <item.icon />

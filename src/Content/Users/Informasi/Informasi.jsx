@@ -1,9 +1,9 @@
-import bigImage from "./../../../assets/imageSide.png";
 import Navbar from "../../../components/NavBar/Navbar";
 import CardInfo from "../../../components/CardInfo/CardInfo";
 import "./Informasi.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { baseURl } from "../../../../constan";
 
 const Informasi = () => {
   const [getDataHapen, setGetDataHapen] = useState([]);
@@ -14,7 +14,7 @@ const Informasi = () => {
 
   const ambilDataHapen = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/hapen");
+      const response = await fetch(`${baseURl}/api/hapen`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -28,14 +28,14 @@ const Informasi = () => {
   return (
     <div className="informasi">
       <Navbar />
-      <header className="pt-5 d-flex align-items-center">
+      <header className="pt-5 d-flex">
         <Container>
-          <Row className="header-box d-flex align-items-center">
+          <Row className="header-box d-flex">
             <Col>
               <h3 className="fw-bold">
                 Informasi <br /> <span> Hama dan Penyakit</span> Tanaman Cabai
               </h3>
-              <div className="table-wrapper-scroll-y my-custom-scrollbar">
+              <div className="informasi-wrapper-scroll-y informasi-custom-scrollbar">
                 {getDataHapen.map((data) => {
                   return (
                     <div className="mb-3" key={data.id_hapen}>
@@ -48,9 +48,6 @@ const Informasi = () => {
                   );
                 })}
               </div>
-            </Col>
-            <Col>
-              <img src={bigImage} alt="Hero Image" />
             </Col>
           </Row>
         </Container>

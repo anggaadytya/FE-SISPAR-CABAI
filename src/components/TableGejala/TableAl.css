@@ -34,14 +34,14 @@ th {
   color: #ffadad8f;
 }
 
-.tableAll-custom-scrollbar {
+.tableGejala-custom-scrollbar {
   position: relative;
   width: 100%;
-  max-height: 600px;
+  max-height: 33rem;
   overflow-y: visible;
 }
 
-.tableAll-wrapper-scroll-y {
+.tableGejala-wrapper-scroll-y {
   display: block;
 }
 
@@ -53,20 +53,16 @@ th {
   background: white;
 }
 
-.headcss {
-  background: var(--pinki);
-  opacity: 70%;
-}
 
-.TableHead {
+.TableHeadGejala {
   position: sticky;
   top: 0;
-  background-color: antiquewhite;
+  background-color: white;
   z-index: 1;
 }
 
 /* Tambahkan style untuk elemen TableHead agar teks berada di tengah header */
-.TableHead .MuiTableCell-root {
+.TableHeadGejala .MuiTableCell-root {
   text-align: center;
   font-weight: bold;
 }

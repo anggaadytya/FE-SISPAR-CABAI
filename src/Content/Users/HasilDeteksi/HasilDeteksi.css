@@ -8,6 +8,98 @@
 }
 
 .form1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 100 !important;
+}
+
+.textTitle {
+  color: var(--green);
+  margin-left: 5px;
+}
+
+.btn-submit-hasil {
+  background-color: var(--green);
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  transition: all 0.2ms ease-in-out;
+}
+
+.btn-submit-hasil:hover {
+  opacity: 70%;
+  transform: scale(1.1);
+  transition: all 0.2ms ease-in-out;
+}
+
+.btn-reset-hasil {
+  background-color: var(--gray);
+  color: white;
+  padding: 5px 15px;
+  border: none;
+  transition: all 0.2ms ease-in-out;
+}
+
+.btn-reset-hasil:hover {
+  opacity: 70%;
+  transition: all 0.2ms ease-in-out;
+  transform: scale(1.1);
+}
+
+.buttonHasil {
+  margin-top: 1rem;
+}
+
+
+
+@media (max-width: 798px) {
+
+  .span {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+  } 
+
+  .textTitle {
+    color: var(--green);
+    margin-left: 5px;
+  }
+
+  .hasil{
+    font-size: 1.2rem;
+  }
+
+  .btn-submit-hasil {
+    font-size: 12px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    transition: all 0.2ms ease-in-out;
+  }
+  
+  .btn-submit-hasil:hover {
+    opacity: 70%;
+    transform: scale(1.1);
+    transition: all 0.2ms ease-in-out;
+  }
+  
+  .btn-reset-hasil {
+    font-size: 12px;
+    background-color: var(--gray);
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    transition: all 0.2ms ease-in-out;
+  }
+  
+  .btn-reset-hasil:hover {
+    opacity: 70%;
+    transition: all 0.2ms ease-in-out;
+    transform: scale(1.1);
+  }
+
+  .buttonHasil {
+    margin-top: 0.1rem;
+  }
+
 }

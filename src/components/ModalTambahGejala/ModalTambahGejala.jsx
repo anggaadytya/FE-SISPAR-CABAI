@@ -10,12 +10,8 @@ import {
   TextField,
 } from "@mui/material";
 
-const ModalTambahGejala = ({
-  openTambahModal,
-  onCloseTambahModal,
-  onTambahData,
-  lastIdGejala,
-}) => {
+const ModalTambahGejala = (props) => {
+  const {openTambahModal, onCloseTambahModal, onTambahData, lastIdGejala} = props;
   const [formData, setFormData] = useState({
     id_gejala: lastIdGejala,
     nama_gejala: "",
@@ -33,7 +29,7 @@ const ModalTambahGejala = ({
         icon: "error",
         title: "Error",
         text: "Nama gejala dan bobot harus diisi.",
-        confirmButtonColor: "chocolate",
+        confirmButtonColor: "var(--green)",
         customClass: {
           container: "my-swal-container",
         },
@@ -46,8 +42,8 @@ const ModalTambahGejala = ({
       confirmButtonText: "OK",
       showCancelButton: true,
       cancelButtonText: "Batal",
-      confirmButtonColor: "chocolate",
-      cancelButtonColor: "rgb(29, 161, 161)",
+      confirmButtonColor: "var(--green)",
+      cancelButtonColor: "var(--gray)",
       customClass: {
         container: "my-swal-container",
       },
@@ -116,13 +112,13 @@ const ModalTambahGejala = ({
       <DialogActions>
         <Button
           onClick={handleTambahButtonClick}
-          style={{ backgroundColor: "chocolate", color: "white" }}
+          style={{ backgroundColor: "var(--green)", color: "white" }}
         >
           Tambah Data
         </Button>
         <Button
           onClick={onCloseTambahModal}
-          style={{ backgroundColor: " rgb(29, 161, 161)", color: "white" }}
+          style={{ backgroundColor: " var(--gray)", color: "white" }}
         >
           Batal
         </Button>

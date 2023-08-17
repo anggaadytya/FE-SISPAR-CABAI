@@ -1,21 +1,19 @@
 .deteksi {
   margin: 0%;
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.63%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
-  height: 120vh;
+  background-image: url("../../../assets/imageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
 }
 
 .deteksi .header-box h3 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 
 .deteksi .header-box h3 span {
-  color: chocolate;
+  color: var(--green);
   font-weight: 700;
 }
 
@@ -31,12 +29,12 @@
 }
 
 .btn-color {
-  background-color: chocolate !important;
+  background-color: var(--green) !important;
 }
 
 .deteksi-my-custom-scrollbar {
   position: relative;
-  height: 350px;
+  height: 26rem;
   overflow: auto;
 }
 
@@ -45,7 +43,7 @@
 }
 
 .btn-submit {
-  background-color: chocolate;
+  background-color: var(--green);
   color: white;
   border: none;
   padding: 5px 10px;
@@ -59,7 +57,7 @@
 }
 
 .btn-reset {
-  background-color: rgb(29, 161, 161);
+  background-color: var(--gray);
   color: white;
   padding: 5px 15px;
   border: none;
@@ -72,15 +70,95 @@
   transform: scale(1.1);
 }
 
+.buttonclass {
+  margin-top: 1rem;
+}
+
+.header {
+  margin-top: 2rem;
+}
+
+.Input {
+  margin-bottom: 0.7rem;
+}
+
+.info {
+  margin-top: 0.5rem;
+}
+
+.custom-checkbox:checked ~ .custom-control-label::before {
+  border-color: green;
+  background-color: green;
+}
 
 @media (max-width: 798px) {
-  .deteksi .header-box h1 {
+  .deteksi .header-box h3 {
     font-size: 1.5rem;
     font-weight: 600;
   }
 
-  .deteksi .header-box p {
+  .deteksi .header-box span {
     line-height: 1.5;
     font-weight: 400;
+  }
+
+  .form1 {
+    font-size: 10px;
+  }
+
+  .buttonclass {
+    margin-top: 10px;
+  }
+
+  .deteksi-my-custom-scrollbar {
+    position: relative;
+    height: 23rem;
+    overflow: auto;
+  }
+
+  .deteksi-wrapper-scroll-y {
+    display: block;
+  }
+
+  .btn-submit {
+    font-size: 14px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    transition: all 0.2ms ease-in-out;
+  }
+
+  .btn-submit:hover {
+    opacity: 70%;
+    transform: scale(1.1);
+    transition: all 0.2ms ease-in-out;
+  }
+
+  .btn-reset {
+    font-size: 14px;
+    background-color: var(--gray);
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    transition: all 0.2ms ease-in-out;
+  }
+
+  .btn-reset:hover {
+    opacity: 70%;
+    transition: all 0.2ms ease-in-out;
+    transform: scale(1.1);
+  }
+
+  .header {
+    margin-top: 0.7rem;
+  }
+
+  .Input {
+    margin-bottom: 0.4rem;
+  }
+
+  .info {
+    margin-top: 0.5rem;
   }
 }

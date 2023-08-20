@@ -7,7 +7,7 @@ import Neighbors from "../../../components/Neighbor/Neighbor";
 import { useReactToPrint } from "react-to-print";
 import { baseURl } from "../../../../constan";
 
-const Deteksi = () => {
+const HasilDeteksi = () => {
   const componentPDF = useRef();
   const [selectedDeteksi, setSelectedDeteksi] = useState({});
   const { idDeteksi } = useParams();
@@ -140,4 +140,4 @@ const Deteksi = () => {
   );
 };
 
-export default Deteksi;
+export default HasilDeteksi;

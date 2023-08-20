@@ -3,18 +3,18 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import HomePage from "./Content/Users/Home/Home.jsx";
-import Deteksi from "./Content/Users/Deteksi/Deteksi.jsx";
-import HasilDeteksi from "./content/Users/HasilDeteksi/HasilDeteksi.jsx";
-import Informasi from "./Content/Users/Informasi/Informasi.jsx";
-import About from "./Content/Users/About/About.jsx";
-import Login from "./Content/Auth/Login/Login.jsx";
-import Register from "./Content/Auth/Register/Register.jsx";
-import Gejala from "./Content/Admin/Gejala/Gejala.jsx";
-import Dashboard from "./Content/Admin/DashBoard/Dashboard.jsx";
-import HamaPenyakit from "./Content/Admin/HamaPenyakit/HamaPenyakit.jsx";
-import BasisKasus from "./Content/Admin/BasisKasus/BasisKasus.jsx";
-import Report from "./Content/Admin/Report/Report.jsx";
+import HomePage from "./Content/Users/Home/Home";
+import Deteksi from "./Content/Users/Deteksi/Deteksi";
+import HasilDeteksi from "./Content/Users/HasilDeteksi/HasilDeteksi";
+import Informasi from "./Content/Users/Informasi/Informasi";
+import About from "./Content/Users/About/About";
+import Login from "./Content/Auth/Login/Login";
+import Register from "./Content/Auth/Register/Register";
+import Gejala from "./Content/Admin/Gejala/Gejala";
+import Dashboard from "./Content/Admin/DashBoard/Dashboard";
+import HamaPenyakit from "./Content/Admin/HamaPenyakit/HamaPenyakit";
+import BasisKasus from "./Content/Admin/BasisKasus/BasisKasus";
+import Report from "./Content/Admin/Report/Report";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <Report />,
   },
   {
-    path: `/hasil-deteksi/:idDeteksi`,
+    path: "/hasil-deteksi/:idDeteksi",
     element: <HasilDeteksi />,
   },
 ]);

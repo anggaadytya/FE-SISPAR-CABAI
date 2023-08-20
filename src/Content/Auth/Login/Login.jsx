@@ -30,7 +30,7 @@ const Login = () => {
     const email = data.get("email");
     const password = data.get("password");
 
-    if (email === "Admin" && password === "Admin") {
+    if (email === "admin@gmail.com" && password === "admin123") {
       setIsSucces(true);
       handleLogin();
     } else {
@@ -80,7 +80,12 @@ const Login = () => {
               type="text"
             />
             <div
-              style={{ display: "flex", width: "100%", position: "relative", color:'white'}}
+              style={{
+                display: "flex",
+                width: "100%",
+                position: "relative",
+                color: "white",
+              }}
             >
               <InputTextField
                 id="password"

@@ -1,4 +1,4 @@
-import Navbar from "./../../../components/NavBar/Navbar";
+import Navbar from "../../../components/NavBar/Navbar";
 import "./HasilDeteksi.css";
 import { Link, useParams } from "react-router-dom";
 import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";

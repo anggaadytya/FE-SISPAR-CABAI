@@ -14,7 +14,7 @@ import Dashboard from "./Content/Admin/DashBoard/Dashboard";
 import HamaPenyakit from "./Content/Admin/HamaPenyakit/HamaPenyakit";
 import BasisKasus from "./Content/Admin/BasisKasus/BasisKasus";
 import Report from "./Content/Admin/Report/Report";
-import HasilDeteksi from "./content/Users/HasilDeteksi/Hasil Deteksi";
+import HasilDeteksi from "./content/Users/HasilDeteksi/HasilDeteksi";
 
 const router = createBrowserRouter([
   {

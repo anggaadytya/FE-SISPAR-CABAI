@@ -1,3 +1,10 @@
+.MainDashReport {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
 .Text1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;

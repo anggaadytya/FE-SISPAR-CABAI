@@ -7,8 +7,7 @@ const Report = () => {
     <div className="AppMain">
       <div className="AppGlass">
         <SideBar id={4} />
-        <div className="MainDashHapen">
-          <h1 className="Text1">Report Hasil Deteksi</h1>
+        <div className="MainDashReport">
           <ReportHarian/>
         </div>
       </div>

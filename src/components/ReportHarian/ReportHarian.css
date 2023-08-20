@@ -1,11 +1,11 @@
-.tableAll-custom-scrollbar {
+.tableReport-custom-scrollbar {
     position: relative;
     width: 100%;
-    max-height: 600px;
+    max-height: 630px;
     overflow-y: visible;
   }
   
-  .tableAll-wrapper-scroll-y {
+  .tableReport-wrapper-scroll-y {
     display: block;
   }
 

@@ -1,7 +1,7 @@
 {
   "name": "hama-cbr",
-  "private": true,
   "version": "0.0.0",
+  "homepage": "https://sispar-cabai.tipnl.com/",
   "type": "module",
   "scripts": {
     "dev": "vite",

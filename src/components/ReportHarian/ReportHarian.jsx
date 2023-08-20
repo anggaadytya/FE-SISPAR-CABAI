@@ -30,7 +30,7 @@ const ReportHarian = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${baseURl}/api/deteksi`);
+        const response = await axios.get(`${baseURl}/api/deteksiall`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -73,7 +73,7 @@ const ReportHarian = () => {
     <div className="Table mt-5">
       <TableContainer
         component={Paper}
-        className="tableAll-wrapper-scroll-y tableAll-custom-scrollbar"
+        className="tableReport-wrapper-scroll-y tableReport-custom-scrollbar"
       >
         <div ref={componentPDF} style={{ width: "100%" }}>
           <Table sx={{ minWidth: 600 }} aria-label="simple table">
@@ -127,7 +127,7 @@ const ReportHarian = () => {
                       </div>
                     ))}
                   </TableCell>
-                  <TableCell align="center">{row.hasil}</TableCell>
+                  <TableCell align="center">{row.nama_hapen}</TableCell>
                   <TableCell align="justify">
                     {parseFloat(row.similarity).toFixed(3)}
                   </TableCell>

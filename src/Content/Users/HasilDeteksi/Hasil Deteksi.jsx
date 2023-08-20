@@ -22,9 +22,7 @@ const Deteksi = () => {
 
   const ambilDataDeteksi = async () => {
     try {
-      const response = await fetch(
-        `${baseURl}/api/deteksi/${idDeteksi}`
-      );
+      const response = await fetch(`${baseURl}/api/deteksi/${idDeteksi}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -50,7 +48,7 @@ const Deteksi = () => {
             <Col>
               <div ref={componentPDF} style={{ width: "100%" }}>
                 <h3 className="text-center fw-bold hasil">
-                  Hasil Deteksi 
+                  Hasil Deteksi
                   <span className="textTitle">Tanaman Cabai Anda</span>
                 </h3>
                 <span className="span">ID Deteksi :</span>
@@ -75,7 +73,7 @@ const Deteksi = () => {
                       as="textarea"
                       value={selectedDeteksi.detail}
                       style={{
-                        textAlign: 'justify',
+                        textAlign: "justify",
                         height: `${
                           selectedDeteksi.detail.split(".").length * 1.2
                         }em`,
@@ -93,7 +91,7 @@ const Deteksi = () => {
                       as="textarea"
                       value={selectedDeteksi.solusi}
                       style={{
-                        textAlign: 'justify',
+                        textAlign: "justify",
                         height: `${
                           selectedDeteksi.solusi.split(".").length * 1
                         }em`,
@@ -127,7 +125,10 @@ const Deteksi = () => {
                 <Link to="/" className="btn-submit-hasil rounded-2">
                   Back
                 </Link>
-                <button className="btn-reset-hasil rounded-2" onClick={generatePDF}>
+                <button
+                  className="btn-reset-hasil rounded-2"
+                  onClick={generatePDF}
+                >
                   PDF
                 </button>
               </div>

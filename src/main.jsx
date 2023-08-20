@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <Report />,
   },
   {
-    path: `/hasil-deteksi/:idDeteksi`,
+    path: "/hasil-deteksi/:idDeteksi",
     element: <HasilDeteksi />,
   },
 ]);

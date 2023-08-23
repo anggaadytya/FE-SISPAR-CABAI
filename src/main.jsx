@@ -22,47 +22,47 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/deteksi",
+    path: "deteksi",
     element: <Deteksi />,
   },
   {
-    path: "/informasi",
+    path: "informasi",
     element: <Informasi />,
   },
   {
-    path: "/about",
+    path: "about",
     element: <About />,
   },
   {
-    path: "/auth/login",
+    path: "auth/login",
     element: <Login />,
   },
   {
-    path: "/auth/register",
+    path: "auth/register",
     element: <Register />,
   },
   {
-    path: "/admin/dashboard",
+    path: "admin/dashboard",
     element: <Dashboard />,
   },
   {
-    path: "/admin/gejala",
+    path: "admin/gejala",
     element: <Gejala />,
   },
   {
-    path: "/admin/hamapenyakit",
+    path: "admin/hamapenyakit",
     element: <HamaPenyakit />,
   },
   {
-    path: "/admin/basiskasus",
+    path: "admin/basiskasus",
     element: <BasisKasus />,
   },
   {
-    path: "/admin/report",
+    path: "admin/report",
     element: <Report />,
   },
   {
-    path: "/hasil-deteksi/:idDeteksi",
+    path: "hasil-deteksi/:idDeteksi",
     element: <HasilDeteksi />,
   },
 ]);

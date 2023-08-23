@@ -8,6 +8,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 import AlertMessage from "../../../components/AlertAuth/AlertAuth";
 import { green } from "@mui/material/colors";
+// import { Redirect } from "react-router-dom"; // Import Redirect
 
 const theme = createTheme({
   palette: {

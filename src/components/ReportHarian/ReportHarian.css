@@ -14,6 +14,13 @@
     font-size: 1rem;
   }
 
+  .btn2 {
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+  }
+
   .input-tanggal {
     border-radius: 5px !important;
     border: 1px solid var(--gray);

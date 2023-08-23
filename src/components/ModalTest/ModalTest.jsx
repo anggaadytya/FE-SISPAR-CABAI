@@ -11,9 +11,8 @@ import {
 } from "@mui/material";
 
 const ModalComponent = (props) => {
-  const {openModal, selectedData, onCloseModal, onEditData} = props;
+  const { openModal, selectedData, onCloseModal, onEditData } = props;
   const [editedData, setEditedData] = useState(onEditData);
-
 
   useEffect(() => {
     if (selectedData) {
@@ -46,7 +45,6 @@ const ModalComponent = (props) => {
     });
   };
 
-
   return (
     <Dialog open={openModal} onClose={onCloseModal} maxWidth="sm" fullWidth>
       {selectedData ? (
@@ -66,14 +64,6 @@ const ModalComponent = (props) => {
                 label="Edit Nama Gejala"
                 name="nama_gejala"
                 value={editedData.nama_gejala || ""}
-                onChange={handleInputChange}
-                fullWidth
-                margin="normal"
-              />
-              <TextField
-                label="Edit Bobot"
-                name="bobot"
-                value={editedData.bobot || ""}
                 onChange={handleInputChange}
                 fullWidth
                 margin="normal"

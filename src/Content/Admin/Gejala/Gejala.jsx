@@ -33,17 +33,15 @@ const Gejala = () => {
   };
 
   const handleEditData = async (editedData) => {
+    const id_gejala = editedData.id_gejala;
     try {
-      const response = await fetch(
-        `${baseURl}/api/gejala/${editedData.id_gejala}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(editedData),
-        }
-      );
+      const response = await fetch(`${baseURl}/api/gejala/${id_gejala}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedData),
+      });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

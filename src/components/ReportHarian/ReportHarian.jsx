@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import "./ReportHarian.css";
 import { useReactToPrint } from "react-to-print";
+import Swal from "sweetalert2";
 import { baseURl } from "../../../constan";
 
 const ReportHarian = () => {
@@ -18,6 +19,20 @@ const ReportHarian = () => {
   const [data, setData] = useState([]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [formDeteksi, setFromDeteksi] = useState("");
+
+  useEffect(() => {
+    getDataDeteksi();
+  }, []);
+
+  const getDataDeteksi = async () => {
+    try {
+      const response = await axios.get(`${baseURl}/api/report`);
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
@@ -27,17 +42,59 @@ const ReportHarian = () => {
     setEndDate(event.target.value);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${baseURl}/api/deteksiall`);
-        setData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const handleDeteksiChange = (event) => {
+    setFromDeteksi(event.target.value);
+  };
+
+  const showDeleteConfirmation = (formDeteksi) => {
+    Swal.fire({
+      icon: "warning",
+      title: "Konfirmasi",
+      text: "Apakah Anda yakin ingin menghapus data ini?",
+      showCancelButton: true,
+      confirmButtonColor: "chocolate",
+      cancelButtonColor: "rgb(29, 161, 161)",
+      confirmButtonText: "Ya, Hapus",
+      cancelButtonText: "Batal",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDeleteDeteksi(formDeteksi);
       }
-    };
-    fetchData();
-  }, []);
+    });
+  };
+
+  const handleDeleteDeteksi = async () => {
+    try {
+      const response = await axios.delete(
+        `${baseURl}/api/report/${formDeteksi}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200) {
+        getDataDeteksi();
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Data deteksi berhasil dihapus",
+          confirmButtonColor: "chocolate",
+        });
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: error.response.data.error,
+          confirmButtonColor: "chocolate",
+        });
+      } else {
+        console.error("Error deleting data:", error);
+      }
+    }
+  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -165,6 +222,24 @@ const ReportHarian = () => {
         />
         <button className="btn1 rounded-2 ms-3" onClick={generatePDF}>
           PDF
+        </button>
+
+        <label htmlFor="startDate" className="text1 ms-5">
+          ID Deteksi
+        </label>
+        <input
+          className="input-tanggal"
+          type="text"
+          id="idDeteksi"
+          name="startDate"
+          value={formDeteksi}
+          onChange={handleDeteksiChange}
+        />
+        <button
+          className="btn2 rounded-2 ms-3"
+          onClick={showDeleteConfirmation}
+        >
+          DELETE
         </button>
       </div>
     </div>

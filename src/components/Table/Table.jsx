@@ -6,7 +6,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
-import { useEffect} from "react";
 
 const makeStyle = (status) => {
   if (status === 1) {
@@ -22,24 +21,20 @@ const makeStyle = (status) => {
   }
 };
 
-export default function BasicTable({getdatauser}) {
-
-  useEffect(() => {
-    console.log("get Data User:", getdatauser);
-  });
-
+export default function BasicTable({ getdatauser }) {
   return (
     <div className="Table mt-5">
       <h3>Data Admin</h3>
-
       <TableContainer
         component={Paper}
         className="tableAll-wrapper-scroll-y tableAll-custom-scrollbar"
       >
-        <Table sx={{ minWidth: 650 }} aria-label="simple table" >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead className="TableHeadBasiskasus">
-            <TableRow >
-              <TableCell align="center" width={100}>User Id</TableCell>
+            <TableRow>
+              <TableCell align="center" width={100}>
+                User Id
+              </TableCell>
               <TableCell align="center">UserName</TableCell>
               <TableCell align="center">FullName</TableCell>
               <TableCell align="center">Email</TableCell>

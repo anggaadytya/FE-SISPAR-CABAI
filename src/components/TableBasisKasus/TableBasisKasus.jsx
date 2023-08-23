@@ -62,7 +62,7 @@ export default function BasicTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {getDataBkAll.map((row, index) => (
+            {getDataBkAll.map((row) => (
               <TableRow
                 key={row.id_basiskasus}
                 sx={{
@@ -93,17 +93,11 @@ export default function BasicTable({
                   ))}
                 </TableCell>
                 <TableCell align="center" className="btn">
-                  <IconButton>
-                    <InfoIcon
-                      className="btn-edit"
-                      onClick={() => onInfoButtonClick(row)}
-                    />
+                  <IconButton onClick={() => onInfoButtonClick(row)}>
+                    <InfoIcon className="btn-edit" />
                   </IconButton>
-                  <IconButton>
-                    <DeleteIcon
-                      className="btn-delete"
-                      onClick={() => showDeleteConfirmation(row)}
-                    />
+                  <IconButton onClick={() => showDeleteConfirmation(row)}>
+                    <DeleteIcon className="btn-delete" />
                   </IconButton>
                 </TableCell>
               </TableRow>

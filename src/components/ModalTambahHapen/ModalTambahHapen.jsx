@@ -11,7 +11,8 @@ import {
 } from "@mui/material";
 
 const ModalTambahHapen = (props) => {
-  const {openTambahModal, onCloseTambahModal, onTambahData, lastIdHapen} = props;
+  const { openTambahModal, onCloseTambahModal, onTambahData, lastIdHapen } =
+    props;
   const [formData, setFormData] = useState({
     id_hapen: lastIdHapen,
     nama_hapen: "",

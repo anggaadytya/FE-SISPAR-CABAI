@@ -12,16 +12,13 @@ import InfoIcon from "@mui/icons-material/Info";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./TableAl.css";
 import Swal from "sweetalert2";
-import { useEffect } from "react";
 
 export default function BasicTable({
   getDataGejalaAll,
   onInfoButtonClick,
   handleDeleteButtonClick,
 }) {
-  useEffect(() => {
-    console.log("get Data Gejala:", getDataGejalaAll);
-  });
+  BasicTable.propType = {};
 
   const showDeleteConfirmation = (row) => {
     Swal.fire({
@@ -61,7 +58,7 @@ export default function BasicTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {getDataGejalaAll.map((row, index) => (
+            {getDataGejalaAll.map((row) => (
               <TableRow
                 key={row.id_gejala}
                 sx={{
@@ -76,17 +73,11 @@ export default function BasicTable({
                   {row.nama_gejala}
                 </TableCell>
                 <TableCell align="center" className="btn">
-                  <IconButton>
-                    <InfoIcon
-                      className="btn-edit"
-                      onClick={() => onInfoButtonClick(row)}
-                    />
+                  <IconButton onClick={() => onInfoButtonClick(row)}>
+                    <InfoIcon className="btn-edit" />
                   </IconButton>
-                  <IconButton>
-                    <DeleteIcon
-                      className="btn-delete"
-                      onClick={() => showDeleteConfirmation(row)}
-                    />
+                  <IconButton onClick={() => showDeleteConfirmation(row)}>
+                    <DeleteIcon className="btn-delete" />
                   </IconButton>
                 </TableCell>
               </TableRow>

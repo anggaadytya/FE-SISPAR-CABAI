@@ -12,17 +12,12 @@ import InfoIcon from "@mui/icons-material/Info";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./TableHapen.css";
 import Swal from "sweetalert2";
-import { useEffect } from "react";
 
 export default function BasicTable({
   getDataHapenAll,
   onInfoButtonClick,
   handleDeleteButtonClick,
 }) {
-  useEffect(() => {
-    console.log("get Data Gejala:", getDataHapenAll);
-  });
-
   const showDeleteConfirmation = (row) => {
     Swal.fire({
       icon: "warning",
@@ -67,7 +62,7 @@ export default function BasicTable({
             </TableRow>
           </TableHead>
           <TableBody>
-            {getDataHapenAll.map((row, index) => (
+            {getDataHapenAll.map((row) => (
               <TableRow
                 key={row.id_hapen}
                 sx={{
@@ -82,17 +77,11 @@ export default function BasicTable({
                 <TableCell align="justify">{row.detail}</TableCell>
                 <TableCell align="justify">{row.solusi}</TableCell>
                 <TableCell align="center" className="btn">
-                  <IconButton>
-                    <InfoIcon
-                      className="btn-edit"
-                      onClick={() => onInfoButtonClick(row)}
-                    />
+                  <IconButton onClick={() => onInfoButtonClick(row)}>
+                    <InfoIcon className="btn-edit" />
                   </IconButton>
-                  <IconButton>
-                    <DeleteIcon
-                      className="btn-delete"
-                      onClick={() => showDeleteConfirmation(row)}
-                    />
+                  <IconButton onClick={() => showDeleteConfirmation(row)}>
+                    <DeleteIcon className="btn-delete" />
                   </IconButton>
                 </TableCell>
               </TableRow>

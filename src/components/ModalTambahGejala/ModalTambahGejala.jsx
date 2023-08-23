@@ -11,7 +11,8 @@ import {
 } from "@mui/material";
 
 const ModalTambahGejala = (props) => {
-  const {openTambahModal, onCloseTambahModal, onTambahData, lastIdGejala} = props;
+  const { openTambahModal, onCloseTambahModal, onTambahData, lastIdGejala } =
+    props;
   const [formData, setFormData] = useState({
     id_gejala: lastIdGejala,
     nama_gejala: "",
@@ -68,8 +69,8 @@ const ModalTambahGejala = (props) => {
         text: "Data gejala berhasil ditambahkan",
         confirmButtonColor: "chocolate",
         customClass: {
-            container: "my-swal-container",
-          },
+          container: "my-swal-container",
+        },
       });
       onCloseTambahModal();
     } catch (error) {
@@ -84,24 +85,13 @@ const ModalTambahGejala = (props) => {
       maxWidth="sm"
       fullWidth
     >
-      <DialogTitle>
-        Tambah Data Gejala
-      </DialogTitle>
+      <DialogTitle>Tambah Data Gejala</DialogTitle>
       <DialogContent>
         <div>
           <TextField
             label="Nama Gejala"
             name="nama_gejala"
             value={formData.nama_gejala}
-            onChange={handleInputChange}
-            fullWidth
-            margin="normal"
-            required=""
-          />
-          <TextField
-            label="Bobot"
-            name="bobot"
-            value={formData.bobot}
             onChange={handleInputChange}
             fullWidth
             margin="normal"

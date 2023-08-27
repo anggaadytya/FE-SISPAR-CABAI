@@ -17,7 +17,7 @@ const Card = (props) => {
       <div className="radialBar">
         <CircularProgressbar
           value={props.barValue}
-          text={`${props.barValue}%`}
+          text={`${props.barValue}`}
         />
       </div>
       <div className="detail">

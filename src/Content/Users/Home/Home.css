@@ -30,7 +30,7 @@
 
 .btn-color-home {
   background: var(--green) !important;
-  color: white !important;
+  font-weight: 500 !important;
 }
 
 .headers {

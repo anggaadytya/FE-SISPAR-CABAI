@@ -8,8 +8,9 @@ img {
   padding-right: 10px !important;
   padding-bottom: 7px !important;
   padding-top: 5px !important;
-  color: white !important;
+  color: black !important;
   background-color: var(--green);
+  font-weight: 600 !important;
   border: none;
   margin-left: 1rem;
 }

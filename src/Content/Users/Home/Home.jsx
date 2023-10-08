@@ -67,16 +67,16 @@ const HomePage = () => {
               </p>
               <p>cek hasil konsultasi anda dibawah</p>
               <div className="d-flex align-items-center">
-                <div className="form-outline col-sm-4">
+                <form className="form-outline col-sm-4">
                   <label htmlFor="typeText" className="form-label"></label>
                   <input
                     type="text"
                     id="typeText"
-                    className="form-control rounded-4 border-1"
+                    className="form-control rounded-4 border-4"
                     value={idDeteksi}
                     onChange={handleInputChange}
                   />
-                </div>
+                </form>
                 <button
                   className="btn btn-color-home btn-md rounded-4 ms-2"
                   onClick={handleCekDeteksi}

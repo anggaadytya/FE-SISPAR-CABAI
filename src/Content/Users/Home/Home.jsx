@@ -68,6 +68,7 @@ const HomePage = () => {
               <p>cek hasil konsultasi anda dibawah</p>
               <div className="d-flex align-items-center">
                 <div className="form-outline col-sm-4">
+                  <label htmlFor="typeText" className="form-label"></label>
                   <input
                     type="text"
                     id="typeText"

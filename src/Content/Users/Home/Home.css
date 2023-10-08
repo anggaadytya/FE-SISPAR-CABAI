@@ -30,11 +30,16 @@
 
 .btn-color-home {
   background: var(--green) !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
+  color: white !important;
 }
 
 .headers {
   padding-top: 6rem;
+}
+
+.form-label {
+  display: none;
 }
 
 @media (max-width: 798px) {

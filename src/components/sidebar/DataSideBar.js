@@ -4,6 +4,7 @@ import {
   UilUsersAlt,
   UilPackage,
   UilChart,
+  UilAirplay,
 } from "@iconscout/react-unicons";
 
 export const SideBarData = [
@@ -36,5 +37,11 @@ export const SideBarData = [
     icon: UilUsersAlt,
     heading: "Report",
     link: "/admin/report",
+  },
+  {
+    id: 6,
+    icon: UilAirplay,
+    heading: "Cross Validation",
+    link: "/admin/crossvalidation",
   },
 ];

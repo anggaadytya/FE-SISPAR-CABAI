@@ -15,6 +15,7 @@ import Dashboard from "./Content/Admin/DashBoard/Dashboard";
 import HamaPenyakit from "./Content/Admin/HamaPenyakit/HamaPenyakit";
 import BasisKasus from "./Content/Admin/BasisKasus/BasisKasus";
 import Report from "./Content/Admin/Report/Report";
+import CrossValidation from "./Content/Admin/CrossValidation/CrossValidation";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
   {
     path: "hasil-deteksi/:idDeteksi",
     element: <HasilDeteksi />,
+  },
+  {
+    path: "admin/crossvalidation",
+    element: <CrossValidation />,
   },
 ]);
 

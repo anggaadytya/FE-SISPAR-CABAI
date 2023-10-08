@@ -149,7 +149,7 @@ const Deteksi = () => {
                         />
                         <Form.Control
                           className="form1"
-                          value={item.nama_gejala}
+                          value={item.id_gejala}
                         />
                       </InputGroup>
                     </div>

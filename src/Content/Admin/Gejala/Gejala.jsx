@@ -6,7 +6,7 @@ import ModalTambahGejala from "../../../components/ModalTambahGejala/ModalTambah
 import Swal from "sweetalert2";
 import axios from "axios";
 import "./Gejala.css";
-import { baseURl } from "../../../../constan";
+
 
 const Gejala = () => {
   const [getDataGejala, setGetDataGejala] = useState([]);
@@ -21,7 +21,7 @@ const Gejala = () => {
 
   const ambilDataGejala = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/gejala`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/gejala`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -35,7 +35,7 @@ const Gejala = () => {
   const handleEditData = async (editedData) => {
     const id_gejala = editedData.id_gejala;
     try {
-      const response = await fetch(`${baseURl}/api/gejala/${id_gejala}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/gejala/${id_gejala}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Gejala = () => {
   const handleDeleteData = async (deletedData) => {
     try {
       const response = await axios.delete(
-        `${baseURl}/api/gejala/${deletedData.id_gejala}`,
+        `${import.meta.env.VITE_BASE_URL}/api/gejala/${deletedData.id_gejala}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const Gejala = () => {
   const handleTambahData = async (formData) => {
     try {
       const response = await axios.post(
-        "https://sispar-api.tipnl.com/api/gejala",
+          `${import.meta.env.VITE_BASE_URL}/api/gejala`,
         formData
       );
       const newIdGejala = response.data.id_gejala;

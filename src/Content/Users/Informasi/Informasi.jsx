@@ -3,7 +3,7 @@ import CardInfo from "../../../components/CardInfo/CardInfo";
 import "./Informasi.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { baseURl } from "../../../../constan";
+
 
 const Informasi = () => {
   const [getDataHapen, setGetDataHapen] = useState([]);
@@ -14,7 +14,7 @@ const Informasi = () => {
 
   const ambilDataHapen = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/hapen`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/hapen`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

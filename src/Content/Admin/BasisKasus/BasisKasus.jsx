@@ -6,7 +6,7 @@ import ModalTambahBk from "../../../components/ModalTambahBasisKasus/ModalTambah
 import Swal from "sweetalert2";
 import axios from "axios";
 import "./BasisKasus.css";
-import { baseURl } from "../../../../constan";
+
 
 const BasisKasus = () => {
   const [getDataBk, setGetDataBk] = useState([]);
@@ -21,7 +21,7 @@ const BasisKasus = () => {
 
   const ambilDataBk = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/basiskasus`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/basiskasus`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -35,7 +35,7 @@ const BasisKasus = () => {
   const handleEditData = async (editedData) => {
     try {
       const response = await fetch(
-        `${baseURl}/api/basiskasus/${editedData.id_basiskasus}`,
+        `${import.meta.env.VITE_BASE_URL}/api/basiskasus/${editedData.id_basiskasus}`,
         {
           method: "PUT",
           headers: {
@@ -62,7 +62,7 @@ const BasisKasus = () => {
   const handleDeleteData = async (deletedData) => {
     try {
       const response = await axios.delete(
-        `${baseURl}/api/basiskasus/${deletedData.id_basiskasus}`,
+        `${import.meta.env.VITE_BASE_URL}/api/basiskasus/${deletedData.id_basiskasus}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const BasisKasus = () => {
   const handleTambahData = async (formData) => {
     try {
       const response = await axios.post(
-        `${baseURl}/api/basiskasus`,
+        `${import.meta.env.VITE_BASE_URL}/api/basiskasus`,
         formData
       );
       const newIdBk = response.data.id_basiskasus;

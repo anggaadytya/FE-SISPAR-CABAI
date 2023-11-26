@@ -13,7 +13,6 @@ import {
   MenuItem,
   TextField,
 } from "@mui/material";
-import { baseURl } from "../../../constan";
 
 const ModalTambahGejala = (props) => {
   const {openTambahModal, onCloseTambahModal, onTambahData, lastIdBk} = props;
@@ -48,7 +47,7 @@ const ModalTambahGejala = (props) => {
 
   const fetchGejalaData = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/gejala`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/gejala`);
       if (!response.ok) {
         throw new Error("Gagal mengambil data gejala");
       }

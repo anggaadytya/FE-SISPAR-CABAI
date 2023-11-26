@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { baseURl } from "../../../../constan";
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const HomePage = () => {
   const handleCekDeteksi = async () => {
     if (idDeteksi.trim() !== "") {
       try {
-        const response = await fetch(`${baseURl}/api/deteksi/${idDeteksi}`);
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/deteksi/${idDeteksi}`);
         if (!response.ok) {
           Swal.fire({
             icon: "error",

@@ -12,7 +12,7 @@ import {
 import "./ReportHarian.css";
 import { useReactToPrint } from "react-to-print";
 import Swal from "sweetalert2";
-import { baseURl } from "../../../constan";
+
 
 const ReportHarian = () => {
   const componentPDF = useRef();
@@ -27,7 +27,7 @@ const ReportHarian = () => {
 
   const getDataDeteksi = async () => {
     try {
-      const response = await axios.get(`${baseURl}/api/report`);
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/report`);
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -66,7 +66,7 @@ const ReportHarian = () => {
   const handleDeleteDeteksi = async () => {
     try {
       const response = await axios.delete(
-        `${baseURl}/api/report/${formDeteksi}`,
+        `${import.meta.env.VITE_BASE_URL}/api/report/${formDeteksi}`,
         {
           headers: {
             "Content-Type": "application/json",

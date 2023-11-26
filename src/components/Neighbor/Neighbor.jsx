@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { InputGroup, Form } from "react-bootstrap";
-import { baseURl } from "../../../constan";
 
 
 const Neighbors = ({ id_deteksi }) => {
@@ -13,7 +12,7 @@ const Neighbors = ({ id_deteksi }) => {
   const fetchNeighbors = async () => {
     try {
       const response = await fetch(
-        `${baseURl}/api/neighbors/${id_deteksi}`
+        `${import.meta.env.VITE_BASE_URL}/api/neighbors/${id_deteksi}`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");

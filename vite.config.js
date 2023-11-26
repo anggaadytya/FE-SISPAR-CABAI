@@ -10,4 +10,5 @@ export default defineConfig({
   esbuild: {
     jsxInject: false,
   },
+ 
 });

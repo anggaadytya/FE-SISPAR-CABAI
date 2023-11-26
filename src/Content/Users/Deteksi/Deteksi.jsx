@@ -3,7 +3,7 @@ import "./Deteksi.css";
 import Swal from "sweetalert2";
 import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { baseURl } from "../../../../constan";
+
 
 const Deteksi = () => {
   const [getDataGejala, setGetDataGejala] = useState([]);
@@ -17,7 +17,7 @@ const Deteksi = () => {
 
   const ambilIdDeteksi = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/last-deteksi-number`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/last-deteksi-number`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -30,7 +30,7 @@ const Deteksi = () => {
 
   const ambilDataGejala = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/gejala`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/gejala`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -63,7 +63,7 @@ const Deteksi = () => {
       return;
     }
     try {
-      const response = await fetch(`${baseURl}/api/deteksi`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/deteksi`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -149,7 +149,7 @@ const Deteksi = () => {
                         />
                         <Form.Control
                           className="form1"
-                          value={item.id_gejala}
+                          value={item.nama_gejala}
                         />
                       </InputGroup>
                     </div>

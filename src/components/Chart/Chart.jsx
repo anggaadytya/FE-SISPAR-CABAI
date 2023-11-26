@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { baseURl } from "../../../constan";
-import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 const BarChart = () => {
@@ -12,7 +10,7 @@ const BarChart = () => {
 
   const ambilData = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/hasil-deteksi`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/hasil-deteksi`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

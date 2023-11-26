@@ -5,7 +5,7 @@ import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
 import Neighbors from "../../../components/Neighbor/Neighbor";
 import { useReactToPrint } from "react-to-print";
-import { baseURl } from "../../../../constan";
+
 
 const HasilDeteksi = () => {
   const componentPDF = useRef();
@@ -22,7 +22,7 @@ const HasilDeteksi = () => {
 
   const ambilDataDeteksi = async () => {
     try {
-      const response = await fetch(`${baseURl}/api/deteksi/${idDeteksi}`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/deteksi/${idDeteksi}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
